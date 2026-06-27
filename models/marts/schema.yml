@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: mart_trips_daily
+    description: "Daily aggregation, one row per calendar day, January 2023"
+    columns:
+      - name: trip_date
+        description: "the calendar day, derived from pickup_datetime"
+        tests:
+          - unique
+          - not_null
+      - name: total_trips
+        description: "count of trips on that day"
+        tests:
+          - not_null
+      - name: total_revenue
+        description: "sum of total_amount across all trips that day"
+        tests:
+          - not_null
+      - name: avg_trip_distance
+        description: "average trip distance in miles across all trips that day"
+

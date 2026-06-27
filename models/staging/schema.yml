@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_yellow_taxi
+    description: "Cleaned staging layer for NYC yellow taxi trips. One row per trip, with location columns renamed and rows filtered to remove non-positive distances/fares and dates outside January 2023."
+    columns:
+      - name: vendor_id
+        description: "Code indicating the TPEP provider that recorded the trip (1 = Creative Mobile, 2 = Curb/VeriFone)"
+        tests:
+          - not_null
+      - name: pickup_datetime
+        description: "timestamp the meter was engaged after customer pickup"
+        tests:
+          - not_null
+      - name: dropoff_datetime
+        description: "timestamp the meter was disengaged and dropped at location."
+        tests:
+          - not_null
+      - name: payment_type
+        description: "numeric code for how the passenger paid (0–6)"
+        tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1, 2, 3, 4, 5, 6]
