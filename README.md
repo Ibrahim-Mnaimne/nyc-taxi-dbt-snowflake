@@ -121,5 +121,6 @@ The dbt-generated lineage graph showing the full dependency chain from source to
 raw.yellow_taxi  ->  stg_yellow_taxi  ->  mart_trips_daily
    (source)            (staging view)        (mart table)
 ```
+**[Live dbt docs (hosted)](https://ibrahim-mnaimne.github.io/nyc-taxi-dbt-snowflake/)** — interactive model documentation and lineage graph.
 
 ![Lineage Graph](docs/lineage.png)
